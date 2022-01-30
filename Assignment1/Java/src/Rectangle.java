@@ -9,7 +9,7 @@ public class Rectangle extends PrintableObject implements Shape {
         length = 0;
     }
 
-    Rectangle (double width, double length) {
+    Rectangle(double width, double length) {
         this.width = width;
         this.length = length;
     }
@@ -40,11 +40,9 @@ public class Rectangle extends PrintableObject implements Shape {
         String[] values = str.split(",");
         double first = Double.parseDouble(values[values.length - 2]);
         double second = Double.parseDouble(values[values.length - 1]);
-        Rectangle rectangle;
         if (first < second) {
             return new Rectangle(first, second);
-        }
-        else {
+        } else {
             return new Rectangle(second, first);
         }
     }
