@@ -43,3 +43,5 @@ list append(list l1, list l2);
 void lfreer(list l);
 
 void print(element e);
+
+void traverse_print(list l);

@@ -19,12 +19,20 @@ void test()
 {
     printf("------TEST START --------\n");
     list l1 = cons(aasel('a'), NULL);
+
     list l2 = cons(aasel('b'), l1);
-    list l3 = cons(aasel('c'), NULL);
+    printf("* New List is %p, next is %p\n\n", l2, l2->next);
+
+    traverse_print(l2);
+    fflush(stdout);
+
     print(lasel(l1));
     printf("\n");
+
     print(lasel(l2));
     printf("\n");
+
+    list l3 = cons(aasel('c'), NULL);
     print(lasel(l3));
     printf("\n");
     fflush(stdout);

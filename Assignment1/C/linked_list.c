@@ -5,7 +5,9 @@
 #define DEBUG 1
 
 #if DEBUG
-#define DEBUG_MEM(msg, p) printf("%s %p\n", msg, p)
+#define DEBUG_MEM(msg, p)      \
+    printf("%s %p\n", msg, p); \
+    fflush(stdout)
 #else
 #define DEBUG_MEM(msg)
 #endif
@@ -64,7 +66,11 @@ list cons(element e, list l)
     DEBUG_MEM("malloc", new_list);
 
     new_list->el = e;
+    printf("New List is %p, next is %p\n", new_list, l);
+
     new_list->next = l;
+    printf("New List is %p, next is %p, %p\n", new_list, new_list->next);
+
     return new_list;
 }
 
@@ -100,24 +106,69 @@ void lfreer(list l)
     };
 }
 
-void print(element e)
+#define DEBUG_PRINT(msg) \
+    printf("%s\n", msg); \
+    fflush(stdout)
+
+#define DEBUG_PRINT(msg)
+
+typedef void (*op)(element e);
+
+void element_print(element e)
 {
     if (e.type == ATOM)
     {
         printf(" %c ", e.a);
+        fflush(stdout);
+    }
+}
+
+void foreach (list l, op method)
+{
+    if (l == NULL)
+    {
+        return;
+    }
+
+    method(l->el);
+    printf("Printing %p; going to %p\n", l, l->next);
+    fflush(stdout);
+    foreach (l->next, method)
+        ;
+}
+
+void traverse_print(list l)
+{
+    foreach (l, element_print)
+        ;
+}
+
+void print(element e)
+{
+    if (e.type == ATOM)
+    {
+        DEBUG_PRINT("Atom");
+        printf(" %c ", e.a);
+        fflush(stdout);
     }
     else if (e.type == LIST)
     {
         if (e.l == NULL)
         {
+            DEBUG_PRINT("Nil");
             printf("NIL");
+            fflush(stdout);
         }
         else
         {
+            DEBUG_PRINT("List Elem");
             printf("(");
             print(e.l->el);
+            fflush(stdout);
 
+            DEBUG_PRINT("List Next");
             print(lasel(e.l->next));
+            fflush(stdout);
             printf(")");
         }
     }
