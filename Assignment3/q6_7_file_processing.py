@@ -88,3 +88,6 @@ def test_file_process():
 
 if __name__ == "__main__":
     main()
+    # $ python q2_lucas_sequence.py
+    # $ coverage run -m pytest q2_lucas_sequence.py
+    # $ coverage report

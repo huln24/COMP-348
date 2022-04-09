@@ -17,3 +17,5 @@ def test_lucas():
 
 if __name__ == "__main__":
     print(", ".join(map(str, lucas_numbers(8))))
+    # $ coverage run -m pytest q2_lucas_sequence.py
+    # $ coverage report

@@ -16,3 +16,5 @@ def test_seq_to_set():
 if __name__ == "__main__":
     print(sequence_to_set((1, 2, 3, 1, 4, 5, 5)))
     print(sequence_to_set([5, 4, 4, 3, 3, 3, 2, 2, 1]))
+# $ coverage run -m pytest q2_lucas_sequence.py
+# $ coverage report

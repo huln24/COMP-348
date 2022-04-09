@@ -13,20 +13,22 @@ class Shape:
         if p is None:
             p = "undefined"
         else:
-            p = f'{p:.5f}'
+            p = f"{p:.5f}"
 
         a = self.area()
         if a is None:
             a = "undefined"
         else:
-            a = f'{a:.5f}'
+            a = f"{a:.5f}"
 
         return (
             str(self.id)
             + ": "
             + type(self).__name__
-            + ", perimeter: " + p
-            + ", area: " + a
+            + ", perimeter: "
+            + p
+            + ", area: "
+            + a
         )
 
     def print(self):
@@ -189,3 +191,13 @@ def test_rhombus():
     # Test for inradius
     assert abs(r1.inradius() - 1.664101) < eps
     assert r2.inradius() is None
+
+
+if __name__ == "__main__":
+    test_rhombus()
+    test_ellipse()
+    test_circle()
+    test_shapes()
+    # $ python q2_lucas_sequence.py
+    # $ coverage run -m pytest q2_lucas_sequence.py
+    # $ coverage report
