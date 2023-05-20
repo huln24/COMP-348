@@ -4,10 +4,10 @@ Assignments for COMP348
 
 ## Languages
 Languages used:
-- Java
-- C
-- Common Lisp
-- Python
-- Prolog
-- C#, LINQ
+- Java (A1, A4)
+- C (A1)
+- Common Lisp (A2)
+- Python (A3)
+- Prolog (A3)
+- C#, LINQ 
             
